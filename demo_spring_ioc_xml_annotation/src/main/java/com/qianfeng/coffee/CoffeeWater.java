@@ -18,6 +18,6 @@ public class CoffeeWater implements IWater {
     @Override
     public String getName() {
         System.out.println("water:"+random);
-        return "咖啡"+random.nextInt();
+        return "咖啡"+random.nextInt(10);
     }
 }
