@@ -1,6 +1,5 @@
 package com.qianfeng;
 
-
 import java.io.Serializable;
 
 public class TbStudent implements Serializable {
@@ -8,7 +7,6 @@ public class TbStudent implements Serializable {
   private long stuId;
   private String stuName;
   private long stuAge;
-
 
   public long getStuId() {
     return stuId;
@@ -18,7 +16,6 @@ public class TbStudent implements Serializable {
     this.stuId = stuId;
   }
 
-
   public String getStuName() {
     return stuName;
   }
@@ -26,7 +23,6 @@ public class TbStudent implements Serializable {
   public void setStuName(String stuName) {
     this.stuName = stuName;
   }
-
 
   public long getStuAge() {
     return stuAge;

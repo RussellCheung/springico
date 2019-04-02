@@ -16,11 +16,11 @@ public class Test {
             public void run() {
                 final ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
                 StuDAO stuDAO = applicationContext.getBean(StuDAO.class);
-                TbStudent tbStudent = stuDAO.queryStudentById(14L);
+                TbStudent tbStudent = stuDAO.queryStudentById(2L);
                 System.out.println("线程1："+tbStudent.getStuName());
 
                 Stu2DAO stu2DAO = applicationContext.getBean(Stu2DAO.class);
-                TbStudent tbStudent2 = stu2DAO.queryStudentById(14L);
+                TbStudent tbStudent2 = stu2DAO.queryStudentById(3L);
                 System.out.println("线程2："+tbStudent2.getStuName());
 
 //                //线程2

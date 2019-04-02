@@ -8,6 +8,6 @@
         </resultMap>
 
     <select id="queryStuById" resultMap="baseResult">
-        select stu_id,stu_name from tb_student where stu_id=#{stuId}
+        select stu_id,stu_name from tb_student where stu_id =#{stuId}
     </select>
 </mapper>

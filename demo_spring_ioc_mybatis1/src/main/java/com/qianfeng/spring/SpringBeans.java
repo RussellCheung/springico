@@ -17,7 +17,7 @@ public class SpringBeans {
     //如果此对象不需要注入到其他位置，就不需要交给spring管理
     private static ThreadLocal<SqlSession> threadLocal = new ThreadLocal<>();
 
-    @Bean //SqlSessionFactory交给spring管理。spring默认情况下的对象管理是单利的。
+    @Bean //SqlSessionFactory交给spring管理。spring默认情况下的对象管理是单例的。
     public SqlSessionFactory provideSessionFactory() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream("mybatis.cfg.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -33,14 +33,14 @@ public class SpringBeans {
      * @param sqlSessionFactory
      * @return
      */
-    @Scope("prototype")
+    @Scope("prototype")//每个线程都能获取session
     @Bean
     public SqlSession provideSession(SqlSessionFactory sqlSessionFactory){
 
         System.out.println(Thread.currentThread().getName());
 
         //session优化问题？？？
-        SqlSession session1 = threadLocal.get();
+        SqlSession session1 = threadLocal.get();//threadlocal让每个线程只能获取一个session，保证了线程安全
         if (session1 == null){
             System.out.println("--------------open session-------------");
             session1 = sqlSessionFactory.openSession();

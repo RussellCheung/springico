@@ -16,7 +16,7 @@ public class SpringTest {
 
     @Test
     public void testCase1(){
-        TbStudent tbStudent = stuDAO.queryStudentById(14L);
+        TbStudent tbStudent = stuDAO.queryStudentById(2L);
         System.out.println(tbStudent.getStuName());
     }
 }
